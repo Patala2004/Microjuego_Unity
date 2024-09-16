@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 810836211
+    locked: 0
+  - name: Meteorite
+    uniqueID: 109904391
+    locked: 0
+  - name: Player
+    uniqueID: 862572605
+    locked: 0
+  - name: UI
+    uniqueID: 2187828303
+    locked: 0
