@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Player_Movement : MonoBehaviour
 {
-    public float maxSpeed = 2f; // multiple of 1.0 or 0.5 if possible
-    public float acceleration = 0.10f; // make a division of 1 if possible
+    public float maxSpeed = 5f; // multiple of 1.0 or 0.5 if possible
+    public float acceleration = 0.1f; // make a division of 1 if possible
 
     private Rigidbody2D rb;
 
