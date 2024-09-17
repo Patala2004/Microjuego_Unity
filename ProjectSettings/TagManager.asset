@@ -11,8 +11,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - Bullet
   - 
   - 
   - 
@@ -43,6 +43,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 810836211
+    locked: 0
+  - name: Bullet
+    uniqueID: 2930005959
     locked: 0
   - name: Meteorite
     uniqueID: 109904391

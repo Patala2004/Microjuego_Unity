@@ -28,8 +28,6 @@ public class UI : MonoBehaviour
             arrowArr[i].transform.position = transform.position - new Vector3(0,0,-110); // move temp arrow out of the screen
             timers[i] = 0;
         }
-
-        alert(180);
     }
 
     // Update is called once per frame

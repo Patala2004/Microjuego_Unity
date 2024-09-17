@@ -16,10 +16,6 @@ public class Background_Tile_Manager : MonoBehaviour
         player = GameObject.Find("Player");
 
         col = GetComponent<CompositeCollider2D>();
-
-        Debug.Log(col.bounds.size);
-
-        
     }
 
     // Update is called once per frame
@@ -32,7 +28,6 @@ public class Background_Tile_Manager : MonoBehaviour
         // When entering the edges of the map 
 
         Vector2 difference = (Vector2) (player.transform.position - transform.position);
-        Debug.Log(difference);
 
         // Check if entering from left, right, top, bottom or on the edges
         if(difference.x <= -23){

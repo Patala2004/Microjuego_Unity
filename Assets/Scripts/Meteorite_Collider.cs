@@ -25,5 +25,8 @@ public class Meteorite_Collider : MonoBehaviour
         if(other.name == "Player"){
             Debug.Log("HIT");
         }
+        else if(other.gameObject.layer == LayerMask.NameToLayer("Bullet")){
+            Debug.Log("METEORITE DESTROYED");
+        }
     }
 }

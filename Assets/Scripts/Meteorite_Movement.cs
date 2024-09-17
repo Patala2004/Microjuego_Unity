@@ -38,7 +38,6 @@ public class Meteorite_Movement : MonoBehaviour
         dirToPlayer = (player.transform.position - transform.position).normalized;
         // Calc angle to player
         angle = Mathf.Atan2(dirToPlayer.y, dirToPlayer.x) * Mathf.Rad2Deg;
-        Debug.Log(angle);
         // Rotate meteorite towards player
         transform.rotation = Quaternion.Euler(new Vector3(0,0,angle));
     }

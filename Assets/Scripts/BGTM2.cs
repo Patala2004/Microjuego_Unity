@@ -20,7 +20,7 @@ public class Background_Tile_Manager2 : MonoBehaviour
         player = GameObject.Find("Player");
         // At start generate the tiles -> 24 tiles -> 8 in camera, 4 on the sides, 8 on top + bottom and 4 on the corners
         len = tile.GetComponent<Renderer>().bounds.size.x;
-        Debug.Log(len);
+
 
 
         for(int i = 0; i < 6; i++){
