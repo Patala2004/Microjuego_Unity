@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class Meteorite_Collider : MonoBehaviour
@@ -9,10 +10,13 @@ public class Meteorite_Collider : MonoBehaviour
 
     public int hp;
 
+    private Meteorite_Movement mm;
+
     // Start is called before the first frame update
     void Start()
     {
         hp = 10;
+        mm = transform.parent.GetComponent<Meteorite_Movement>();
     }
 
     // Update is called once per frame
@@ -27,6 +31,8 @@ public class Meteorite_Collider : MonoBehaviour
         }
         else if(other.gameObject.layer == LayerMask.NameToLayer("Bullet")){
             Debug.Log("METEORITE DESTROYED");
+            mm.speed = 0;
+            transform.position = transform.parent.position;
         }
     }
 }

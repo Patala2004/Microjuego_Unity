@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class Player_Movement : MonoBehaviour
@@ -30,7 +31,7 @@ public class Player_Movement : MonoBehaviour
     void FixedUpdate()
     {
         // Rotate Body based on input
-        transform.Rotate(0,0,-movement.x * 120f * Time.deltaTime);
+        transform.Rotate(0,0,-movement.x * 200f * Time.deltaTime);
         // Accelerate based on input
          // Speed can only be between 0 and maxSpeed
         speed += (float) acceleration * movement.y;
