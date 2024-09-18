@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class UI : MonoBehaviour
     private int current_arrow_integer = 0;
     private GameObject[] arrowArr;
 
+    private Text score_canvas;
+    private int score = 0;
+
     // Timers
     private float[] timers;
     public float alertPeriod = 0.25f;
@@ -19,6 +23,8 @@ public class UI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        score_canvas = GetComponentInChildren<Text>();
+        score_canvas.text = "Score: 0";
         arrowArr = new GameObject[MAX_ALERTS];
         timers = new float[MAX_ALERTS];
         for(int i = 0; i < MAX_ALERTS; i++){
@@ -64,5 +70,9 @@ public class UI : MonoBehaviour
         // Advance integers and alert counter
         current_arrow_integer = (current_arrow_integer+1) % MAX_ALERTS;
         activeAlerts++;
+    }
+
+    public void updateScore(){
+        score_canvas.text = "Score: " + ++score;
     }
 }

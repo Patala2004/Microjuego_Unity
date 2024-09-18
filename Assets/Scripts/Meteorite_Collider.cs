@@ -11,12 +11,14 @@ public class Meteorite_Collider : MonoBehaviour
     public int hp;
 
     private Meteorite_Movement mm;
+    private UI ui;
 
     // Start is called before the first frame update
     void Start()
     {
         hp = 10;
         mm = GetComponent<Meteorite_Movement>();
+        ui = GameObject.Find("UI").GetComponent<UI>();
     }
 
     // Update is called once per frame
@@ -33,6 +35,7 @@ public class Meteorite_Collider : MonoBehaviour
             Debug.Log("METEORITE DESTROYED");
             mm.speed = 0;
             transform.position = transform.parent.position;
+            ui.updateScore(); // score++
         }
     }
 }
