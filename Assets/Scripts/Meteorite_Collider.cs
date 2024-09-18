@@ -32,7 +32,6 @@ public class Meteorite_Collider : MonoBehaviour
             Debug.Log("HIT");
         }
         else if(other.gameObject.layer == LayerMask.NameToLayer("Bullet") && other.GetComponent<Bullet_Movement>().speed > 0){
-            Debug.Log("METEORITE DESTROYED");
             mm.speed = 0;
             transform.position = transform.parent.position;
             ui.updateScore(); // score++
