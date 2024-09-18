@@ -16,7 +16,7 @@ public class Meteorite_Collider : MonoBehaviour
     void Start()
     {
         hp = 10;
-        mm = transform.parent.GetComponent<Meteorite_Movement>();
+        mm = GetComponent<Meteorite_Movement>();
     }
 
     // Update is called once per frame
