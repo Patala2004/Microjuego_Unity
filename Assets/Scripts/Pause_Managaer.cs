@@ -37,6 +37,7 @@ public class Pause_Managaer : MonoBehaviour
         // manage deadscreen as well, why the fuck not
         if(Input.GetKeyDown(KeyCode.R) && deadScreen.activeSelf){
             // restart scene
+            Time.timeScale = 1;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
