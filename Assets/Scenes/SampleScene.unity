@@ -1323,7 +1323,7 @@ MonoBehaviour:
   enemyPrefabList:
   - {fileID: 458246860428398136, guid: c52cdec39d4a0f045bac7144da8c7dfb, type: 3}
   - {fileID: 458246860428398136, guid: 76b3bf882cd615728a39663634a778fd, type: 3}
-  spawnPeriod: 5
+  spawnPeriod: 3.5
 --- !u!61 &1398561658
 BoxCollider2D:
   m_ObjectHideFlags: 0
