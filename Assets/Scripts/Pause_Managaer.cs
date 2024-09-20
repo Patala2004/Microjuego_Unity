@@ -8,8 +8,10 @@ public class Pause_Managaer : MonoBehaviour
 
     private bool isPaused = false;
     private GameObject pauseMenu;
+    private GameObject deadScreen;
     void Start()
     {
+        deadScreen = GameObject.Find("DeadScreen");
         pauseMenu = GameObject.Find("PauseMenu");    
         pauseMenu.SetActive(false); // Start with the menu hidden    
     }
@@ -17,7 +19,7 @@ public class Pause_Managaer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape)){ // If pressed Esc
+        if(Input.GetKeyDown(KeyCode.Escape) && !deadScreen.activeSelf){ // If pressed Esc
             if(isPaused){
                 isPaused = false;
                 Time.timeScale = 1; // Restore deltaTime function

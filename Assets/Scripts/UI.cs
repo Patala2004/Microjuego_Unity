@@ -8,6 +8,7 @@ public class UI : MonoBehaviour
 
     public GameObject arrowAlertPrefab;
     private ScreenShake cameraShake;
+    private GameObject deadScreen;
 
     private const int MAX_ALERTS = 100;
     private int current_arrow_integer = 0;
@@ -25,6 +26,8 @@ public class UI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        deadScreen = GameObject.Find("DeadScreen");
+        deadScreen.SetActive(false);
         cameraShake = transform.parent.GetComponent<ScreenShake>();
         score_canvas = GetComponentInChildren<Text>();
         score_canvas.text = "Score: 0";
@@ -83,14 +86,19 @@ public class UI : MonoBehaviour
         if(shields == 0){
             // If you dont have shields when hit you die
             Debug.Log("YOU DIED");
+            deadScreen.SetActive(true); // Show deadscreen
+            Time.timeScale = 0; // Pause deltaTime (movement and animations)
+
         }
         else{
             GameObject shieldSprite = GameObject.Find("Energy" + shields);
             shieldSprite.SetActive(false); // Hide sprite
             shields--;
+
+            // add camera tumbling effect when hit
+            cameraShake.TriggerShake(); 
         }   
 
-        // add camera tumbling effect when hit
-        cameraShake.TriggerShake();
+        
     }
 }

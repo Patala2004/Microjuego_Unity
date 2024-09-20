@@ -105,8 +105,8 @@ public class EnemySpawner : MonoBehaviour
         small_enemy_index = (small_enemy_index+1) % (MAX_ENEMY_AMM*2);
         GameObject curr_small_meteorite2 = smallMeteorite[small_enemy_index];
 
-        curr_small_meteorite1.transform.rotation = Quaternion.Euler(0,0,angle + 180);
-        curr_small_meteorite2.transform.rotation = Quaternion.Euler(0,0,angle + 180); // Rotate both small meteorites
+        curr_small_meteorite1.transform.rotation = Quaternion.Euler(0,0,angle + 20 + 180);
+        curr_small_meteorite2.transform.rotation = Quaternion.Euler(0,0,angle - 20 + 180); // Rotate both small meteorites
 
         // Move the meteorites slightly to the sides so they dont spawn on top of each other
         curr_small_meteorite1.transform.position = position + (Vector2) curr_small_meteorite1.transform.up;
