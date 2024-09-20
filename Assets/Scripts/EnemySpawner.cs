@@ -100,7 +100,6 @@ public class EnemySpawner : MonoBehaviour
     }
 
     public void SpawnSmallEnemy(float angle, float speed, Vector2 position){
-        Debug.Log("Spawn small meteorite");
         // Get next spawnable element
         GameObject curr_small_meteorite1 = smallMeteorite[small_enemy_index];
         small_enemy_index = (small_enemy_index+1) % (MAX_ENEMY_AMM*2);

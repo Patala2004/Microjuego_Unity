@@ -18,7 +18,6 @@ public class Camera_Follow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<ScreenShake>().TriggerShake();
         shake = GetComponent<ScreenShake>();
         cam = GetComponent<Camera>();
         GameObject playerObj = GameObject.Find("Player");

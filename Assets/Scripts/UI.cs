@@ -80,7 +80,6 @@ public class UI : MonoBehaviour
     }
 
     public void removeShield(){
-        Debug.Log(shields);
         if(shields == 0){
             // If you dont have shields when hit you die
             Debug.Log("YOU DIED");
