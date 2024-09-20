@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 
 public class Meteorite_Collider : MonoBehaviour
