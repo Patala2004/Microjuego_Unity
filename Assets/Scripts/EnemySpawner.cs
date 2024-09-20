@@ -29,6 +29,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         nextSpawnTime = Time.time;
+        timesSpawned = 0;
         player = GameObject.Find("Player");
         ui = GameObject.Find("UI").GetComponent<UI>();
 

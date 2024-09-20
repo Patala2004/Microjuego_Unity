@@ -34,7 +34,7 @@ public class Camera_Follow : MonoBehaviour
         // Calculate desired position with offset
         transform.position =  player.transform.position + offset + player.transform.right * playerMov.speed / 7; // Camera a bit behind based on speed for velocity effect
 
-        cam.orthographicSize = 5 + 2*(playerMov.speed / maxSpeed); // Speed between 5 - 7 based on curr speed relative to max speed
+        cam.orthographicSize = 5 + (float) 1.6*(playerMov.speed / maxSpeed); // Speed between 5 - 7 based on curr speed relative to max speed
     }
 
     public void Shake(){
