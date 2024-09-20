@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -20,7 +21,9 @@ public class EnemySpawner : MonoBehaviour
 
     // Timer const and vars
     private float nextSpawnTime = 0f;
-    public float spawnPeriod = 2f;
+    private const float COOLDOWN_SCALE_FACTOR = 0.1f;
+    public float spawnPeriod = 5f;
+    private int timesSpawned = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -52,9 +55,12 @@ public class EnemySpawner : MonoBehaviour
     }
 
     void FixedUpdate(){
-        if(Time.time > nextSpawnTime){
+        if(Time.time > (nextSpawnTime / (1 + COOLDOWN_SCALE_FACTOR * math.log(1 + timesSpawned)))){
             nextSpawnTime += spawnPeriod;
-            SpawnEnemy();
+            for(int i = 0; i*10 < timesSpawned; i++){
+                SpawnEnemy(); // Spawn an increasing ammount of enemies
+            }
+            timesSpawned++;
         }
     }
 
@@ -75,7 +81,7 @@ public class EnemySpawner : MonoBehaviour
         GameObject curr_meteorite = normalMeteorite[current_enemy_index];
 
         // Set a random angle at which the meteorite will come from
-        float randAngle = Random.Range(1,360);
+        float randAngle = UnityEngine.Random.Range(1,360);
         curr_meteorite.GetComponent<Meteorite_Movement>().angle = randAngle;
 
         // Rotate the meteorite that angle
@@ -90,7 +96,7 @@ public class EnemySpawner : MonoBehaviour
         
 
         // Set a random speed
-        int randSpeed = Random.Range(4,7);
+        int randSpeed = UnityEngine.Random.Range(4,7);
         curr_meteorite.GetComponent<Meteorite_Movement>().setSpeed(randSpeed);
 
         // Prepare index for next spawnable element
