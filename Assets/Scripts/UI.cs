@@ -49,8 +49,8 @@ public class UI : MonoBehaviour
     void FixedUpdate(){
 
         float currT = Time.time;
-        int startIndex = (100 + current_arrow_integer - activeAlerts) % MAX_ALERTS; // Startindex -> current_integer - active Alerts ajustado al ciclo de 0,1,2...,97,98,99,0,1,2,3,...,97,98,99,0,1,2,...
-        for(int i = startIndex; i!=current_arrow_integer; i=(i+1)%MAX_ALERTS){
+        int startIndex = (MAX_ALERTS + current_arrow_integer - activeAlerts) % MAX_ALERTS; // Startindex -> current_integer - active Alerts ajustado al ciclo de 0,1,2...,97,98,99,0,1,2,3,...,97,98,99,0,1,2,...
+        for(int i = startIndex; i!=current_arrow_integer; i=((i+1)%MAX_ALERTS)){
             if(timers[i] != 0 && currT > timers[i]){
                 timers[i] = 0; // unset timer
                 arrowArr[i].transform.position = transform.position - new Vector3(0,0,-110); // reset arrow pos

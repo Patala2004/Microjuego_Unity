@@ -28,6 +28,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        nextSpawnTime = Time.time;
         player = GameObject.Find("Player");
         ui = GameObject.Find("UI").GetComponent<UI>();
 
@@ -56,11 +57,11 @@ public class EnemySpawner : MonoBehaviour
 
     void FixedUpdate(){
         if(Time.time > (nextSpawnTime / (1 + COOLDOWN_SCALE_FACTOR * math.log(1 + timesSpawned)))){
+            timesSpawned++;
             nextSpawnTime += spawnPeriod;
             for(int i = 0; i*10 < timesSpawned; i++){
                 SpawnEnemy(); // Spawn an increasing ammount of enemies
             }
-            timesSpawned++;
         }
     }
 
