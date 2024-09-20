@@ -37,7 +37,6 @@ public class Meteorite_Collider : MonoBehaviour
             // Reset meteorite
             mm.speed = 0;
             transform.position = transform.parent.position;
-            ui.updateScore(); // score++
         }
         else if(other.gameObject.layer == LayerMask.NameToLayer("Bullet") && other.GetComponent<Bullet_Movement>().speed > 0){
 
