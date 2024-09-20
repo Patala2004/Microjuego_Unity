@@ -34,6 +34,7 @@ public class UI : MonoBehaviour
         for(int i = 0; i < MAX_ALERTS; i++){
             // Instantiate and prepare arrows
             arrowArr[i] = Instantiate(arrowAlertPrefab);
+            arrowArr[i].SetActive(false);
             arrowArr[i].transform.parent = transform;
             arrowArr[i].transform.position = transform.position - new Vector3(0,0,-110); // move temp arrow out of the screen
             timers[i] = 0;
@@ -53,7 +54,7 @@ public class UI : MonoBehaviour
             if(timers[i] != 0 && currT > timers[i]){
                 timers[i] = 0; // unset timer
                 arrowArr[i].transform.position = transform.position - new Vector3(0,0,-110); // reset arrow pos
-                arrowArr[i].transform.rotation = Quaternion.Euler(0,0,0); // reset rotation // Maybe delete? Not really necesarry but for debug looks better
+                arrowArr[i].SetActive(false); // Hide arrow
                 activeAlerts--;
             }
         }
@@ -62,6 +63,7 @@ public class UI : MonoBehaviour
     public void alert(float angle){
 
         GameObject arrow = arrowArr[current_arrow_integer];
+        arrow.SetActive(true); // Show arrow
 
         // Rotate arrow so it looks towards player
         arrow.transform.rotation = Quaternion.Euler(0,0,angle+90); 
