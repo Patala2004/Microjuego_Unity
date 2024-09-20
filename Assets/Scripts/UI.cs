@@ -7,6 +7,7 @@ public class UI : MonoBehaviour
 {
 
     public GameObject arrowAlertPrefab;
+    private ScreenShake cameraShake;
 
     private const int MAX_ALERTS = 100;
     private int current_arrow_integer = 0;
@@ -14,6 +15,7 @@ public class UI : MonoBehaviour
 
     private Text score_canvas;
     private int score = 0;
+    private int shields = 5;
 
     // Timers
     private float[] timers;
@@ -23,6 +25,7 @@ public class UI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cameraShake = transform.parent.GetComponent<ScreenShake>();
         score_canvas = GetComponentInChildren<Text>();
         score_canvas.text = "Score: 0";
         arrowArr = new GameObject[MAX_ALERTS];
@@ -74,5 +77,21 @@ public class UI : MonoBehaviour
 
     public void updateScore(){
         score_canvas.text = "Score: " + ++score;
+    }
+
+    public void removeShield(){
+        Debug.Log(shields);
+        if(shields == 0){
+            // If you dont have shields when hit you die
+            Debug.Log("YOU DIED");
+        }
+        else{
+            GameObject shieldSprite = GameObject.Find("Energy" + shields);
+            shieldSprite.SetActive(false); // Hide sprite
+            shields--;
+        }   
+
+        // add camera tumbling effect when hit
+        cameraShake.TriggerShake();
     }
 }

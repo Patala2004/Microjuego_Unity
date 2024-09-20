@@ -7,6 +7,7 @@ public class Camera_Follow : MonoBehaviour
 
     private Transform player;
     private Player_Movement playerMov;
+    private ScreenShake shake;
 
     private Camera cam;
     public float smoothSpeed = 0.125f;  // Speed at which the camera follows
@@ -17,6 +18,8 @@ public class Camera_Follow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GetComponent<ScreenShake>().TriggerShake();
+        shake = GetComponent<ScreenShake>();
         cam = GetComponent<Camera>();
         GameObject playerObj = GameObject.Find("Player");
         player = playerObj.transform;
@@ -27,11 +30,18 @@ public class Camera_Follow : MonoBehaviour
     }
     void LateUpdate()
     {
+        // Dont interrupt shake
+        if(shake.isShaking){
+            return;
+        }
         // Calculate desired position with offset
         transform.position =  player.transform.position + offset + player.transform.right * playerMov.speed / 7; // Camera a bit behind based on speed for velocity effect
 
         cam.orthographicSize = 5 + 2*(playerMov.speed / maxSpeed); // Speed between 5 - 7 based on curr speed relative to max speed
-        
+    }
+
+    public void Shake(){
+
     }
 }
 
