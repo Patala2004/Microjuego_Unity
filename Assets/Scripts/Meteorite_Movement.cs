@@ -13,7 +13,7 @@ public class Meteorite_Movement : MonoBehaviour
     private GameObject player;
 
     private Vector2 dirToPlayer;
-    private float angle;
+    public float angle;
     private const float DESPAWN_DISTANCE = 150f;
     void Start()
     {
@@ -37,16 +37,6 @@ public class Meteorite_Movement : MonoBehaviour
             }
         }
     }
-
-    public void facePlayer(){
-        // Calc direction to player
-        dirToPlayer = (player.transform.position - transform.position).normalized;
-        // Calc angle to player
-        angle = Mathf.Atan2(dirToPlayer.y, dirToPlayer.x) * Mathf.Rad2Deg;
-        // Rotate meteorite towards player
-        transform.rotation = Quaternion.Euler(new Vector3(0,0,angle));
-    }
-
     public void setSpeed(float speed){
         this.speed = speed;
     }

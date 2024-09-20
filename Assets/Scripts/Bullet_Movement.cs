@@ -29,11 +29,15 @@ public class Bullet_Movement : MonoBehaviour
         if(speed > 0){ // So it doesnt calculate movement when 'at the chamber'
             rb.MovePosition(rb.position + (Vector2) transform.right * speed * Time.fixedDeltaTime);
             if((transform.position - player.transform.position).magnitude > DESPAWN_DISTANCE){ 
-                // Put bullet back in chamber
-                speed = 0;
-                transform.parent = gun.transform;
-                transform.position = transform.parent.position; // Put at same pos as the 'Gun' object
+                Reset();
             }
         }
+    }
+
+    public void Reset(){
+        // Put bullet back in chamber
+        speed = 0;
+        transform.parent = gun.transform;
+        transform.position = transform.parent.position; // Put at same pos as the 'Gun' object
     }
 }
