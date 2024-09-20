@@ -83,7 +83,6 @@ public class UI : MonoBehaviour
     public void removeShield(){
         if(shields == 0){
             // If you dont have shields when hit you die
-            Debug.Log("YOU DIED");
             deadScreen.SetActive(true); // Show deadscreen
             Time.timeScale = 0; // Pause deltaTime (movement and animations)
 

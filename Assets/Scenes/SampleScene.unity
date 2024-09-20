@@ -613,7 +613,10 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: '
 
-    Your ship was destroyed.'
+    Your ship was destroyed
+
+
+    Press R to try again or Q to quit'
 --- !u!222 &863315106
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1142,7 +1145,7 @@ MonoBehaviour:
   m_Text: 'Game is Paused
 
 
-    Press ESC to continue'
+    Press ESC to continue or Q to quit'
 --- !u!222 &1354997267
 CanvasRenderer:
   m_ObjectHideFlags: 0

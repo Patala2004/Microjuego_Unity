@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Pause_Managaer : MonoBehaviour
 {
@@ -29,5 +30,14 @@ public class Pause_Managaer : MonoBehaviour
                 pauseMenu.SetActive(true); // Show Pause Menu
             }
         }        
+        if(Input.GetKeyDown(KeyCode.Q) && (isPaused || deadScreen.activeSelf)){
+            Application.Quit();
+        }
+
+        // manage deadscreen as well, why the fuck not
+        if(Input.GetKeyDown(KeyCode.R) && deadScreen.activeSelf){
+            // restart scene
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 }
